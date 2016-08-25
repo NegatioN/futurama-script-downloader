@@ -6,8 +6,8 @@ import sys, urllib.request
 
 
 def create_url(title):
-    title = title.replace(' ', '-')
-    return 'http://www.imsdb.com/transcripts/Futurama-' + title
+    title = title.replace('Script', '').strip().replace(' ', '-').replace('\'', '\'\"\'\"\'')
+    return '\'http://www.imsdb.com/transcripts/Futurama-' + title + '.html\''
 
 request = urllib.request.Request(sys.argv[1])
 webpage_bytes = urllib.request.urlopen(request)
